@@ -1,0 +1,114 @@
+body {
+    /*background: rgb(37, 37, 37);*/
+    font-family: verdana;
+}
+
+h1 {
+    color: rgb(255, 45, 150);
+}
+
+p {
+    /*color: rgb(255, 45, 150);*/
+    color: gold;
+}
+
+img {
+    position: fixed;
+    z-index: -1;
+    opacity: 0.2;
+    height: 100%;
+    width: 100%;
+}
+
+.form {
+    float: left;
+    margin-left: 50px;
+    width: 320px;
+    margin-right: 15px;
+    padding: 5px;
+}
+
+.info {
+    position: absolute;
+    top: 106px;
+    left: 420px;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    height: 813px;
+    min-width: 40%;
+    text-align: center;
+}
+
+.image {
+    height: 200px;
+    width: 200px;
+    background: white;
+    float: left;
+    clear: both;
+    border: 2px solid blue;
+    position: absolute;
+    cursor: pointer;
+    text-align: center;
+}
+
+#choose {
+    cursor: pointer;
+    color: white;
+    background: rgb(255, 45, 150);;
+    /*float: right;*/
+    margin-top: 90%;
+    border: none;
+    position: relative;
+    width: 200px;
+    /*opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);*/
+}
+
+.size {
+    width: 300px;
+    height: 28px;
+}
+
+#create {
+    cursor: pointer;
+    color: white;
+    background: rgb(255, 45, 150);;
+    margin-top: 215px;
+    border-color: white;
+}
+
+form b {
+    color: lightseagreen;
+}
+
+legend {
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

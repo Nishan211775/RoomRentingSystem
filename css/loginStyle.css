@@ -1,0 +1,50 @@
+body {
+    background: rgb(37, 37, 37);
+    font-family: verdana;
+}
+
+.content {
+    width: 350px;
+    margin: auto;
+}
+
+legend {
+    color: white;
+}
+
+h1 {
+    font-size: 35px;
+    color: rgb(255, 45, 150);
+}
+
+.label {
+    font-size: 25px;
+    color: green;
+    margin: 10px 0 10px 0;
+}
+
+input {
+    width: 100%;
+}
+
+#username, #password {
+    height: 35px;
+    font-size: 20px;
+}
+
+#loginButton, #signupButton {
+    height: 35px;
+    color: white;
+    background: rgb(255, 45, 150);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 25px;
+    border-color: aqua;
+}
+
+
+.noaccount {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
