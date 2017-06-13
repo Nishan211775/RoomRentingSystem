@@ -38,9 +38,11 @@
         </div>
         <?php
             $user = new UserController();
-            $data = $user -> showProfile(1);
+            $cus = new Customer();
+            $cus -> setId(1);
+            $data = $user -> showProfile($cus);
 
-
+            print_r($data);
         ?>
     </div>
 </body>

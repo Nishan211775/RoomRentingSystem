@@ -1,5 +1,5 @@
 body {
-    /*background: rgb(37, 37, 37);*/
+    background: rgb(37, 37, 37);
     font-family: verdana;
 }
 
@@ -26,6 +26,10 @@ img {
     width: 320px;
     margin-right: 15px;
     padding: 5px;
+}
+
+.message {
+    color: red;
 }
 
 .info {

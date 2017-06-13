@@ -1,22 +1,29 @@
 <?php
-include_once ("../controller/UserController.php");
 
-    /*$msg = "";
+    session_start();
 
-    if (isset($_POST['signup'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    include_once ("../controller/UserController.php");
+    include_once ("../model/Customer.php");
 
-        $l = new UserController();
-        $lo = $l -> login($username, $password);
+    $message = '';
 
-        if ($lo) {
-            header("location: ../index.php");
+    if (isset($_POST['login'])) {
+        $c = new Customer();
+        $c -> setUsername($_POST['username']);
+        $c -> setPassword($_POST['password']);
+
+        $u = new UserController();
+        $res = $u -> login($c);
+
+        if ($res) {
+            header('location: ../index.php');
+            $_SESSION['account_type'] = "Owner";
         } else {
-            $msg = "invalid username or password";
+            header('location: ../index.php');
+            $message = "Either username or password is wrong";
+            $_SESSION['account_type'] = "Owner";
         }
-    }*/
-
+    }
 ?>
 
 <html>
@@ -33,7 +40,7 @@ include_once ("../controller/UserController.php");
                 <hr>
                 <p class="label">Username</p>
                 <input type="text" placeholder="username" id="username" name="username"><br>
-                <p><?php echo $msg; ?></p>
+                <p class="message"><?php echo $message;  ?></p>
                 <p class="label">Password</p>
                 <input type="password" placeholder="password" id="password" name="password"><br><br>
                 <input type="submit" value="Login" id="loginButton" name="login"><br>

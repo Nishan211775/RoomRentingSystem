@@ -1,5 +1,5 @@
 body {
-    background: rgb(37, 37, 37);
+    /*background: rgb(37, 37, 37);*/
     font-family: verdana;
 }
 
@@ -25,6 +25,10 @@ h1 {
 
 input {
     width: 100%;
+}
+
+.message {
+    color: red;
 }
 
 #username, #password {

@@ -17,6 +17,8 @@ class Customer
     private $address;
     private $accountType;
     private $city;
+    private $password;
+    private $nishan;
 
     public function Customer() {
 
@@ -92,5 +94,13 @@ class Customer
 
     public function getCity() {
         return $this->city;
+    }
+
+    public function setPassword($password) {
+        $this->password = $password;
+    }
+
+    public function getPassword() {
+        return $this->password;
     }
 }
