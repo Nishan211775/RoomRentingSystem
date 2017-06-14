@@ -114,11 +114,20 @@ body {
 
 #post_room {
     display: none;
-    /*background: white;
-    margin-left: auto;
-    margin-right: auto;
-    height: 500px;
-    width: 500px;
-    position: relative;
-    top: -350px;*/
+    text-align: center;
+    border: 2px solid red;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 30px;
+    border-radius: 50px;
+    padding-bottom: 10px;
+}
+
+.size {
+    text-align: center;
+    color: blueviolet;
+    font-size: 20px;
+    border-radius: 10px;
+    width: 250px;
+    height: 25px;
 }

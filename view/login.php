@@ -19,9 +19,7 @@
             header('location: ../index.php');
             $_SESSION['account_type'] = "Owner";
         } else {
-            header('location: ../index.php');
             $message = "Either username or password is wrong";
-            $_SESSION['account_type'] = "Owner";
         }
     }
 ?>

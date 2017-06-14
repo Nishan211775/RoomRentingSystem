@@ -25,7 +25,7 @@
                     values (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             try {
-                $stm = parent::getConnection() -> prepare($sql);
+                $stm = $this -> getConnection() -> prepare($sql);
 
                 $fname = $c -> getFirstName();
                 $lname = $c -> getLastName();
@@ -53,7 +53,7 @@
             $sql = "insert into photos(`photo_id`, `photo_name`, `customer_id`, `room_id`) VALUES (NULL, ?, ?, ?)";
 
             try {
-                $stm = parent::getConnection() -> prepare($sql);
+                $stm = $this -> getConnection() -> prepare($sql);
 
                 $photo_name  = $p -> getPhotoName();
                 $customer_id = $p -> getCustomerId();
@@ -71,21 +71,24 @@
 
 
         public function showProfile(Customer $c) {
-
             $sql = "select first_name, last_name, username, gender, contact, address, photo_name 
                     from customer c, photos p
                     where c.customer_id = p.customer_id 
                     and c.customer_id = ?";
 
             try {
-                $stmt = parent::getConnection() -> prepare($sql);
+                $stmt = $this -> getConnection() -> prepare($sql);
                 $id = $c -> getId();
                 $stmt -> bind_param("i", $id);
+                $stmt -> execute();
+
+                $res = $stmt -> get_result();
+
             } catch (SQLiteException $ex) {
                 echo $ex;
             }
 
-            return $stmt -> execute();
+            return mysqli_fetch_array($res);
         }
 
 
@@ -96,11 +99,11 @@
                 $username = $c -> getUsername();
                 $password = $c -> getPassword();
 
-                $stmt = parent::getConnection() -> prepare($sql);
+                $stmt = $this -> getConnection() -> prepare($sql);
                 $stmt -> bind_param('ss', $username, $password);
-                $res = $stmt -> execute();
+                $stmt -> execute();
 
-                while (next($res)) {
+                while ($row = $stmt -> fetch()) {
                     return true;
                 }
 

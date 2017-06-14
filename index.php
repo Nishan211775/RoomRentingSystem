@@ -1,4 +1,5 @@
 <?php
+    include_once ("model/photo.php");
     session_start();
     $account_type = $_SESSION['account_type'];
 ?>
@@ -45,6 +46,44 @@
                     <a href="" class="link" id="opener">Click here to post your room</a>
                 </div>
 
+        <?php
+            if (isset($_POST['save_room'])) {
+
+                $target = "images/room" . basename($_FILES['photo_selector']['name']);
+                $image_name = $_FILES['photo_selector']['name'];
+
+                $size = $_POST['size'];
+                $no_of_rooms = $_POST['no_of_rooms'];
+                $price = $_POST['price'];
+                $location = $_POST['location'];
+                $photo = $_POST['photo_selector'];
+                $features = $_POST['features'];
+
+                $photo = new Photo();
+                $room = new Room();
+                $room_controller = new RoomController();
+                $photo_controller = new PhotoController();
+
+                $room->setRoomId(NULL);
+                $room->setSize($size);
+                $room->setNoOfRooms($no_of_rooms);
+                $room->setPrice($price);
+                $room->setLocation($location);
+                $room->setFeatures($photo);
+                $room->setRenterId($features);
+
+                $photo->setPhotoId(NULL);
+                $photo->setPhotoName($image_name);
+                $photo->setCustomerId(NULL);
+                $photo->setRoomId(NULL);
+
+                $room_controller->createRoom($room);
+                $photo_controller->insertImage($photo);
+
+                move_uploaded_file($_FILES['photo_selector']['tmp_name'], $target);
+            }
+            ?>
+
                 <?php
             } else {
         ?>
@@ -56,64 +95,44 @@
 
         <div id="post_room">
             <form method="post" action="">
-                <h1>Please provide detail information</h1>
-                <p>Size of your room</p>
-                <input type="text" placeholder="size" required="required">
-                <p>How many rooms do you want to rent?</p>
-                <input type="text" placeholder="no of rooms" required="required">
-                <p>Include price</p>
-                <input type="text" placeholder="price of per room" required="required">
-                <p>Location of rooms</p>
-                <input type="text" placeholder="location" required="required">
-                <p>Please provide features of your room</p>
-                <textarea  rows="8" cols="50"
+                <h1>Please provide detail information</h1><hr>
+                <span>
+                    <p>Size of Room</p>
+                    <input type="text" placeholder="size in meter" name="size" required="required" class="size">
+                </span>
+                <span>
+                    <p>Number of rooms available to rent?</p>
+                    <input type="text" placeholder="no of rooms" name="no_of_rooms" required="required" class="size">
+                </span>
+                <span>
+                    <p>Include price</p>
+                    <input type="text" placeholder="price of per room in ruppee" name="price" required="required" class="size">
+                </span>
+                <span>
+                    <p>Location of rooms</p>
+                    <input type="text" placeholder="location" name="location" required="required" class="size">
+                </span>
+                <span>
+                    <p>Please choose a photo for your room</p>
+                    <input type="file" id="photo_selector" name="photo_selector">
+                </span>
+                <span>
+                    <p>Please provide features of your room</p>
+                    <textarea rows="8" cols="50" name="features"></textarea><br>
+                </span>
+                <input type="submit" value="Save" name="save_room" class="size">
             </form>
         </div>
-
     </div>
 </body>
 </html>
 
-<div id="post_room">
-    <form action="" method="post">
-        Enter your room name<input type="text">
-        <input type="button" id="save" value="save">
-    </form>
-</div>
-
-
 <script type="text/javascript">
     $(document).ready(function () {
-        /*$("#opener").click(function (e) {
+        $("#opener").click(function (e) {
             $("#post_room").show();
 
             e.preventDefault();
-        });*/
-
-        $("#post_room").$dialog({
-            autoOpen: false,
-            height: 500,
-            width: 500,
-            modal: true
-
-            button: [
-                {
-                    text: "Cancel",
-                    click: function () {
-                        $(this).$dialog("close");
-                    }
-                }
-                {
-                    text: "Submit",
-                    click: function () {
-                        $("#post_room").submit();
-                    }
-                }
-            ]
-        });
-
-        $("#opener").click(function () {
-            $("#post_room").$dialog("open");
         });
     });
 </script>
