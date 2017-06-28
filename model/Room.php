@@ -75,5 +75,4 @@ class Room {
     public function getRenterId() {
         return $this->renter_id;
     }
-
 }

@@ -14,10 +14,16 @@
 
         $u = new UserController();
         $res = $u -> login($c);
+        $profile = $u -> getUserInfo($c);
+
 
         if ($res) {
             header('location: ../index.php');
-            $_SESSION['account_type'] = "Owner";
+            $_SESSION['get_access'] = true;
+            $_SESSION['customer_id'] = $profile[0];
+            $_SESSION['username'] = $profile[3];
+            $_SESSION['password'] = $profile[9];
+            $_SESSION['account_type'] = $profile[7];
         } else {
             $message = "Either username or password is wrong";
         }

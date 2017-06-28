@@ -1,12 +1,13 @@
 <?php
-include_once ("../DBConnection/DBConnection.php");
-include_once ("../model/Room.php");
+
 /**
  * Created by PhpStorm.
  * User: Nishan
  * Date: 6/14/2017
  * Time: 7:30 AM
  */
+include_once ("../model/photo.php");
+
 class PhotoController extends DBConnection {
 
     public function PhotoController() {

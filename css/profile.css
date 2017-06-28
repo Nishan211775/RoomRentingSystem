@@ -1,0 +1,104 @@
+.content {
+    height: 440px;
+    /*border: 5px solid blue;
+    border-radius: 20px;*/
+}
+
+.photo {
+    height: 400px;
+    width: 400px;
+    background: red;
+    border: 2px solid blue;
+    text-align: left;
+    margin-left: 10px;
+    float: left;
+    margin-top: 20px;
+}
+
+.pic {
+    height: 400px;
+    width: 400px;
+}
+
+.profile {
+    height: 400px;
+    float: left;
+    border-left: 1px solid white;
+    margin-left: 450px;
+    margin-top: 20px;
+    padding-left: 20px;
+    position: absolute;
+}
+
+.profile table {
+    color: white;
+}
+
+.first-row {
+    text-align: center;
+    font-size: 35px;
+    border-bottom: 3px solid white;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 60px 10px;
+}
+
+td {
+    padding: 10px 0;
+}
+
+#update_profile td button {
+    background: rgb(255, 45, 150);
+    width: 250px;
+    height: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.udpate {
+    background: rgb(255, 45, 150);
+    border: none;
+    float: right;
+    color: white;
+    cursor: pointer;
+}
+
+.ui-dialog-title{
+    font-size: 110% !important;
+    color: white !important;
+    background: rgb(37, 37, 37); !important;
+    width: 500px;
+    float: right;
+    margin-bottom: 30px;
+}
+
+.ui-corner-all {
+    border: 2px solid #5d3b16;
+    border-radius: 20px;
+    background: rgb(37, 37, 37);
+
+}
+
+.ui-resizable-n {
+    background-image: none;
+}
+
+#update_profile input {
+    height: 30px;
+    width: 300px;
+}
+
+#update_profile table tr td p {
+    color: white;
+    text-decoration: none;
+}
+
+#update_profile table tr td {
+    margin-left: 50px;
+}
+
+.content .profile table tr {
+    font-size: 30px;
+}

@@ -1,0 +1,81 @@
+.booking {
+    height: 250px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: #808000;
+    padding: 5px;
+}
+
+.info {
+    width: 100%;
+    height: 58%;
+    margin-left: 0;
+}
+
+.conformation {
+    width: 100%;
+    height: 40%;
+    margin-top: -15px;
+}
+
+.pic {
+    height: 100%;
+    width: 25%;
+    float: left;
+}
+
+.information {
+    height: 100%;
+    width: 73%;
+    float: right;
+}
+
+.sure {
+    height: 30%;
+}
+
+.activity {
+    height: 70%;
+}
+
+.content .booking .info .pic img {
+    height: 100%;
+    width: 100%;
+}
+
+.buttons {
+    float: right;
+    margin-top: 5px;
+    margin-right: 10px;
+    background: rgb(255, 45, 150);
+    cursor: pointer;
+    color: white;
+    width: 150px;
+    height: 30px;
+}
+
+.view_profile {
+    background: red;
+    width: 800px;
+    height: 450px;
+}
+
+.customer_photo {
+    float: left;
+    width: 45%;
+    height: 100%;
+    padding: 15px;
+    background: white;
+}
+
+.customer_profile {
+    height: 100%;
+    width: 50%;
+    background: yellow;
+    font-size: 50px;
+    float: right;
+}

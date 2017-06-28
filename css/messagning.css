@@ -1,0 +1,17 @@
+.to {
+     height: 50px;
+     background: red;
+     text-align: left;
+     clear: both;
+ }
+
+.message {
+    height: 200px;
+    clear: both;
+    margin-top: 20px;
+}
+
+.message_log {
+    color: white;
+    clear: both;
+}
