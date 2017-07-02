@@ -5,5 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="hotel mgmt" />
+    <orderEntry type="module" module-name="LindisfarneSafariPark" />
+    <orderEntry type="module" module-name="PHPMailer" />
   </component>
 </module>

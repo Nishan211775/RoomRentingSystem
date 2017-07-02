@@ -9,8 +9,12 @@
 
     $btn_text = "BOOK THIS ROOM";
 
-    if (isset($_GET['btn_text'])) {
-        $btn_text = $_GET['btn_text'];
+    if (isset($_GET['mes'])) {
+        ?>
+        <script>
+            alert("Room Booked\nYou will get email if the booking is accepted");
+        </script>
+        <?php
     }
 ?>
 
@@ -36,7 +40,7 @@
     <div class="header">
         <div class="logo">
             <h1>Room Renting System</h1>
-            <a id="login" href="login.php">Login</a>
+
             <a id="logout" href="logout.php">Logout</a>
         </div>
         <div class="nav">
@@ -46,7 +50,13 @@
                     <li><a href="messages.php">Messages</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li><a href="notification.php">Notification</a></li>
-                    <li><a href="room.php">Rooms</a></li>
+                    <?php
+                    if ($account_type == "Owner") {
+                    ?>
+                        <li><a href="room.php">Rooms</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>
@@ -88,25 +98,26 @@
                             $res = $rc -> showRoomDetails();
 
                             foreach ($res as $row) {
-                                $res1 = $rc -> getRenterDetails($row[6]);    
+                                $res1 = $rc -> getRenterDetails($row[6]);
+                                foreach ($res1 as $data) {
                                 ?>
                                     <div class="room_details">
                                         <div class="picture">
                                             <img src="../images/room/<?php echo $row[8];?>">
-                                            <form method="post" action="booking.php?renter_id=<?php echo $res1[0]?> &
+                                            <form method="post" action="booking.php?renter_id=<?php echo $data[0]?> &
                                                     room_id=<?php echo $row[0] ?>">
                                                 <input type="submit" class="button" id="book" name="book" value="<?php echo $btn_text;?>">
                                             </form>
-                                            <form method="post" action="messages.php?receiver_id=<?php echo $res1[0]?>">
+                                            <form method="post" action="messages.php?receiver_id=<?php echo $data[0]?>">
                                                 <input type="submit" class="button" name="message" value="MESSAGE">
                                             </form>
-                                            <p><?php echo "Contact: ".$res1[3] ?></p>
+                                            <p><?php echo "Contact: ".$data[3] ?></p>
                                         </div>
                                         <div class="detail">
                                             <table width="412" style="color: white;">
                                                 <tr>
                                                     <td colspan="3" style="color: red;background: white; text-align: center;">
-                                                        <?php echo $res1[1]." ".$res1[2]; ?></td>
+                                                        <?php echo $data[1]." ".$data[2]; ?></td>
                                                     <td></td>
                                                 </tr>
                                                 <tr>
@@ -140,7 +151,7 @@
                                     </div>
                                     <hr>
                                 <?php
-                            }
+                            }}
                         ?>
                     </div>
                 </div>
@@ -151,8 +162,8 @@
 
         <div id="post_room">
             <form method="post" action="save_room.php">
-                <h1>Please provide detail information</h1><hr>
-                <span>
+                    <h1>Please provide detail information</h1><hr>
+                    <span>
                     <p>Size of Room</p>
                     <input type="text" placeholder="size in meter" name="size" required="required" class="size">
                 </span>

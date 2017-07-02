@@ -42,8 +42,8 @@
                 <legend>Login here</legend>
                 <h1>Please login</h1>
                 <hr>
-                <p class="label">Username</p>
-                <input type="text" placeholder="username" id="username" name="username"><br>
+                <p class="label">Email</p>
+                <input type="text" placeholder="email" id="username" name="username"><br>
                 <p class="message"><?php echo $message;  ?></p>
                 <p class="label">Password</p>
                 <input type="password" placeholder="password" id="password" name="password"><br><br>

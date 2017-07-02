@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once ('../model/Booking.php');
 include_once ('../controller/BookingController.php');
 /**
@@ -9,10 +10,16 @@ include_once ('../controller/BookingController.php');
  */
 
 $booking_id = $_GET['id'];
+$_SESSION['booking_id'] = $booking_id;
+
 $booking = new Booking();
 $booking -> setBookingId($booking_id);
+
+echo $_SESSION['booking_id'];
 
 $bc = new BookingController();
 $bc -> acceptBooking($booking);
 
-header("location: notification.php");
+header("location: ../controller/send_mail.php");
+
+//header("location: notification.php");

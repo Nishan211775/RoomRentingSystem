@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../LindisfarneSafariPark/.idea/LindisfarneSafariPark.iml" filepath="$PROJECT_DIR$/../LindisfarneSafariPark/.idea/LindisfarneSafariPark.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/PHPMailer/.idea/PHPMailer.iml" filepath="$USER_HOME$/Desktop/PHPMailer/.idea/PHPMailer.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Rent_Room.iml" filepath="$PROJECT_DIR$/.idea/Rent_Room.iml" />
       <module fileurl="file://$PROJECT_DIR$/../hotelmgmt/.idea/hotel mgmt.iml" filepath="$PROJECT_DIR$/../hotelmgmt/.idea/hotel mgmt.iml" />
     </modules>

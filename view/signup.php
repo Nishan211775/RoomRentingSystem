@@ -86,7 +86,7 @@
                 <p>Last Name</p>
                 <input class="size" type="text" placeholder="last name" name="lastname">
                 <p>username</p>
-                <input class="size" type="text" placeholder="username" name="username">
+                <input class="size" type="email" placeholder="email" name="username">
                 <p class="message"><?php echo $message_username; ?></p>
                 <P>Select gender</P>
                 <input type="radio" value="Male" name="gender" required="required"><b>Male</b>

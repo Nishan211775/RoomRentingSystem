@@ -57,6 +57,21 @@ class RoomController extends DBConnection {
 
     }
 
+    public function singleRoom($id) {
+        $sql = "select * from rooms where room_id = ?";
+
+        try {
+            $stm = $this -> getConnection() -> prepare($sql);
+            $stm -> bind_param("i", $id);
+            $stm -> execute();
+            $res = $stm -> get_result();
+        } catch (SQLiteException $e) {
+            echo $e -> getMessage();
+        }
+
+        return mysqli_fetch_array($res);
+    }
+
     public function getRenterDetails($id) {
         $sql = "select customer_id, first_name, last_name, contact from customer where customer_id = ?";
 
@@ -88,6 +103,21 @@ class RoomController extends DBConnection {
         }
 
         return mysqli_fetch_all($res);
+    }
+
+    public function deleteRoom($room_id) {
+        $sql = "delete from rooms where room_id = ?";
+
+        try {
+            $stm = $this -> getConnection() -> prepare($sql);
+            $stm -> bind_param("i", $room_id);
+            $res = $stm -> execute() or die($stm -> error);
+
+        } catch (SQLiteException $e) {
+            echo $e -> getMessage();
+        }
+
+        return $res;
     }
 
 }

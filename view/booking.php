@@ -23,4 +23,4 @@ $booking -> setRoomId($room_id);
 $bc = new BookingController();
 $res = $bc -> bookRoom($booking);
 
-header("location: home.php?btn_text=CANCEL BOOKING");
+header("location: home.php?mes='booked'");

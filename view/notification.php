@@ -61,7 +61,7 @@ $not = $bc -> notifyUser($b);
 <div class="header">
     <div class="logo">
         <h1>Room Renting System</h1>
-        <a id="login" href="login.php">Login</a>
+
         <a id="logout" href="logout.php">Logout</a>
     </div>
     <div class="nav">
@@ -71,7 +71,13 @@ $not = $bc -> notifyUser($b);
                 <li><a href="messages.php">Messages</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a class="current" href="notification.php">Notification</a></li>
-                <li><a href="room.php">Rooms</a></li>
+                <?php
+                if ($_SESSION['account_type'] == "Owner") {
+                    ?>
+                    <li><a href="room.php">Rooms</a></li>
+                <?php
+                }
+                ?>
             </ul>
         </nav>
     </div>
@@ -137,7 +143,7 @@ $not = $bc -> notifyUser($b);
                     foreach ($res as $rows) {
                         ?>
                         <div style="width: 700px; height: 50px; margin-left: auto; margin-right: auto;">
-                            <p>Your <a href="">room </a> bookig has been accepted by <a href=""><?php echo $rows[1]." ".$rows[2]; ?></a> </p>
+                            <p>Your room bookig has been accepted. Please check your <a href="http://www.gmail.com">email</a></p>
                         </div><hr>
                     <?php
                     }

@@ -46,7 +46,7 @@ $senders = $mescon -> getSenderName($_SESSION['customer_id']);
     <div class="header">
         <div class="logo">
             <h1>Room Renting System</h1>
-            <a id="login" href="login.php">Login</a>
+
             <a id="logout" href="logout.php">Logout</a>
         </div>
         <div class="nav">
@@ -56,7 +56,13 @@ $senders = $mescon -> getSenderName($_SESSION['customer_id']);
                     <li><a class="current" href="messages.php">Messages</a></li>
                     <li><a href="profile.php">Profile</a></li>
                     <li><a href="notification.php">Notification</a></li>
-                    <li><a href="room.php">Rooms</a></li>
+                    <?php
+                    if ($_SESSION['account_type'] == "Owner") {
+                        ?>
+                        <li><a href="room.php">Rooms</a></li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>
